@@ -3,11 +3,25 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "amqplib": "^0.5.5"
+    "@koa/cors": "^2.2.3",
+    "amqplib": "^0.5.5",
+    "koa": "^2.10.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open",
+    "server": "node ./src/app.js",
+    "producer": "node ./src/terminal/producer.js",
+    "worker1": "node ./src/terminal/worker1.js",
+    "worker2": "node ./src/terminal/worker2.js"
   },
   "author": "",
   "license": "ISC"

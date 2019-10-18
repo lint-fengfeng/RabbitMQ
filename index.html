@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MQ</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .app {
+      padding-top: 100px;
+      margin: 0 auto;
+      width: 1000px;
+      height: 500px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .title {
+      font-size: 30px;
+      font-weight: bold;
+      background-color: #ccc;
+    }
+    .content {
+      height: 400px;
+      line-height: 400px;
+      display: flex;
+    }
+    .left {
+      flex: 1;
+      border: 1px solid #eee;
+      box-shadow: 0px 4px 2px #333;
+    }
+    .right {
+      flex: 1;
+      border: 1px solid #eee;
+      box-shadow: 0px 4px 2px #333;
+    }
+    .right, .left {
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="title">MQ测试demo</div>
+    <div class="content">
+      <div class="left">
+        <input type="text" class="input">
+        <button class="sendBtn">点我发送消息</button>
+      </div>
+      <div class="right">
+        <p id="receive1">
+          <span>worker1</span>
+          <span class="content1"></span>
+        </p>
+        <p id="receive2">
+          <span>worker2</span>
+          <span class="content2"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

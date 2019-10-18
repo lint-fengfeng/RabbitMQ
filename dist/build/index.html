@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .app {
+      padding-top: 100px;
+      margin: 0 auto;
+      width: 1000px;
+      height: 500px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .title {
+      font-size: 30px;
+      font-weight: bold;
+      background-color: #ccc;
+    }
+    .content {
+      height: 400px;
+      line-height: 400px;
+      display: flex;
+    }
+    .left {
+      flex: 1;
+      border: 1px solid #eee;
+      box-shadow: 0px 5px 2px #ccc;
+    }
+    .right {
+      flex: 1;
+      border: 1px solid #eee;
+      box-shadow: 0px 5px 5px #ccc;
+    }
+    .right, .left {
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="title">MQ测试demo</div>
+    <div class="content">
+      <div class="left">
+        <input type="text">
+        <button class="sendBtn">点我发送消息</button>
+      </div>
+      <div class="right">
+        <p id="receive"></p>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var sendBtn = document.querySelector(".sendBtn");
+    
+    sendBtn.onclick = function(evt) {
+      ajsx("post", "/api/sendMessage", "application/json", {text: 'hello world!'})
+    }
+
+    function ajsx(method, url, header, body) {
+      var XHR = new XMLHttpRequest();
+      XHR.onreadystatechange = function () {
+        if(XHR.status==200 && XHR.readyState==4){
+          var res = JSON.parse(XHR.responseText);
+          console.log(res)
+        }
+      };
+      XHR.open(method, url, true);
+      XHR.setRequestHeader ("content-type", header)
+      XHR.send(JSON.stringify(body));
+    }
+  </script>
+</body>
+</html>
